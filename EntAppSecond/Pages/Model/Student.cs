@@ -25,14 +25,24 @@ namespace Validation.Pages.Model
         public string LastName { get; set; } = "";
 
 
-
-        public DateTime DOB { get; set; }
-
-
-        public int NrModules { get; set; }
+        //[DataType(DataType.Date)]
+        //public DateTime DOB { get; set; }
 
 
-        public int Height { get; set; }
+        //[Range(1, 100, ErrorMessage = "You must be registered for at least one module")]
+        //public int NrModules { get; set; }
+
+
+        //[Range(50, 250, ErrorMessage ="Height must be between 50 and 250 cms, sorry!!")]
+        //public int Height { get; set; }
+
+
+        //[DataType(DataType.EmailAddress)]
+        //public EmailAddressAttribute Email { get; set; }
+
+
+        //[Compare("Email")]
+        //public EmailAddressAttribute EmailConfirm { get; set; }
 
 
         public Student()

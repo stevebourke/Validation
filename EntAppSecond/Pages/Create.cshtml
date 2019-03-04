@@ -1,0 +1,70 @@
+﻿@page
+@model Validation.Pages.CreateStudentsModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<form method="post">
+
+    <div>
+        <label asp-for=Student.FirstName />
+        <input asp-for=Student.FirstName />
+    </div>
+
+
+    <div>
+        <label asp-for=Student.LastName />
+        <input asp-for=Student.LastName />
+    </div>
+
+
+    <div>
+        <label asp-for=Student.StudentID />
+        <input asp-for=Student.StudentID />
+    </div>
+
+
+    @*<div>
+        <label asp-for=Student.DOB />
+        <input asp-for=Student.DOB />
+    </div>
+
+
+    <div>
+        <label asp-for=Student.NrModules />
+        <input asp-for=Student.NrModules />
+    </div>
+
+
+    <div>
+        <label asp-for=Student.Height />
+        <input asp-for=Student.Height />
+    </div>
+
+
+    <div>
+        <label asp-for=Student.Email />
+        <input asp-for=Student.Email />
+    </div>
+
+
+    <div>
+        <label asp-for=Student.EmailConfirm />
+        <input asp-for=Student.EmailConfirm />
+    </div>
+
+
+    <p>@Model.Message</p>*@
+
+
+
+    <div asp-validation-summary=All></div>
+
+    <span asp-validation-for=Student.StudentID></span>
+
+
+    <button type="submit">Press Me</button>
+
+</form>
+
