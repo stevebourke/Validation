@@ -21,6 +21,7 @@ namespace Validation.Pages
         }
 
 
+        [BindProperty]
         public Student Student { get; set; }
 
 
@@ -32,16 +33,17 @@ namespace Validation.Pages
 
 
 
-        public async Task<IActionResult> OnAsyncPost()
+        public async Task<IActionResult> OnPostAsync()
         {
-            
-            
+
+            if (ModelState.IsValid)
+            {
                 _db.Students.Add(Student);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("ListStudents");
-            
+            }
 
-          
+            else return Page();
 
         }
     }

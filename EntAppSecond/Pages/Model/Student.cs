@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Validation.Pages.Model
 {
     public class Student
     {
-
+        
         [Required]
         [RegularExpression(@"^(s|S)\d{7}$", ErrorMessage ="ID Must be of format s1234567")]
         public string StudentID { get; set; } = "";
@@ -25,24 +26,31 @@ namespace Validation.Pages.Model
         public string LastName { get; set; } = "";
 
 
-        //[DataType(DataType.Date)]
-        //public DateTime DOB { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime DOB { get; set; }
 
 
-        //[Range(1, 100, ErrorMessage = "You must be registered for at least one module")]
-        //public int NrModules { get; set; }
+        [Required]
+        [Range(1, 100, ErrorMessage = "You must be registered for at least one module")]
+        public int NrModules { get; set; }
 
 
-        //[Range(50, 250, ErrorMessage ="Height must be between 50 and 250 cms, sorry!!")]
-        //public int Height { get; set; }
+        [Required]
+        [Range(50, 250, ErrorMessage = "Height must be between 50 and 250 cms, sorry!!")]
+        public int Height { get; set; }
+
+        //Changed type from EmailAddressAttribute to string as there were problems with
+        //primary key
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
 
-        //[DataType(DataType.EmailAddress)]
-        //public EmailAddressAttribute Email { get; set; }
-
-
-        //[Compare("Email")]
-        //public EmailAddressAttribute EmailConfirm { get; set; }
+        [Required]
+        [Compare("Email")]
+        [DataType(DataType.EmailAddress)]
+        public string EmailConfirm { get; set; }
 
 
         public Student()
